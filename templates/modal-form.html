@@ -1,0 +1,22 @@
+<div class="modal">
+    <ion-header-bar class="bar bar-header bar-assertive">
+        <h1 class="title"> {{currForm.firstName}} {{currForm.lastName}}</h1>
+        <div class="buttons">
+            <button class="button ion-android-close button-clear" ng-click="closeForm()"> Close</button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+
+            <div class="item item-divider" >
+                  {{currForm.cardNumber|cardNumber}}
+            </div>
+            <div class="item item-text-wrap">
+                <strong>Gender:</strong> <span> {{currForm.gender}}</span>
+                <strong>Email:</strong> <p> {{currForm.email}}</p>
+                <strong>Phone:</strong> <p> {{currForm.phoneNumber | phone}}</p>
+                <strong>Address:</strong> <p> {{currForm.address}}, {{currForm.city}}, {{currForm.provinces}}</p>
+                <strong>Subscription: </strong><p> {{currForm.subscription}}</p>
+            </div>
+  
+    </ion-content>
+</div>

@@ -1,0 +1,32 @@
+<ion-view title="Task">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+
+    <ion-content class="has-header">
+        <form name="signupForm" novalidate="novalidate" >
+            <ion-nav-buttons side="right">
+                <button class="button ion-android-checkmark button-clear"
+                        ng-click="submitForm()"
+                        ng-disabled="signupForm.$invalid"
+                        > Submit
+                </button>
+            </ion-nav-buttons>
+            <ion-item ng-repeat="task in tasks" ng-click="openTask(task)">
+                <!-- <h2>{{task.id}}</h2> -->
+                <h2 class="room-number">{{task.room}}</h2>
+                <h2 class="status">{{task.status}} </h2>
+            </ion-item>
+
+
+
+
+            <button class="button icon ion-android-checkmark button-block button-calm" 
+                    ng-click="submitForm()"
+                    ng-disabled="signupForm.$invalid"
+                    > Submit</button>
+        </form>
+    </ion-content>
+
+</ion-view>
+

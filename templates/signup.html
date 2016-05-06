@@ -1,0 +1,139 @@
+<ion-view title="iSharePoint Sign up Form">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+
+    <ion-content class="has-header">
+        <form name="signupForm" novalidate="novalidate" >
+            <ion-nav-buttons side="right">
+                <button class="button ion-android-checkmark button-clear"
+                        ng-click="submitForm()"
+                        ng-disabled="signupForm.$invalid"
+                        > Submit
+                </button>
+            </ion-nav-buttons>
+            <label class="item item-input item-stacked-label cardnumber">
+                <span class="input-label">Card Number</span>
+
+                <input type="tel" 
+                       ng-model="cx.cardNo1"
+                       maxlength="4"
+                       ng-pattern="/^[0-9]{4}/"
+                       custom
+                       required>-
+                <input type="tel" 
+                       ng-model="cx.cardNo2"
+                       maxlength="4"
+                       ng-pattern="/^[0-9]{4}/"
+                       custom
+                       required>-
+                <input type="tel" 
+                       ng-model="cx.cardNo3"
+                       ng-pattern="/^[0-9]{4}/"
+                       maxlength="4"
+                       custom
+                       required>-
+                <input type="tel" 
+                       ng-model="cx.cardNo4"
+                       ng-pattern="/^[0-9]{4}/"
+                       maxlength="4"
+                       custom
+                       required>
+
+                </input>
+            </label>
+
+            <label class="item item-input item-stacked-label">
+                <input type="text"
+                       name="f_name"
+                       ng-model="cx.f_name" 
+                       placeholder="First Name" 
+                       ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/"
+                       required>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <input type="text" 
+                       name="l_name" 
+                       ng-model="cx.l_name"  
+                       placeholder="Last Name" 
+                       ng-pattern="/^[a-zA-Z]*$/"
+                       required>
+            </label>
+            <label class="item item-input item-select">
+                <span class="input-label">Gender</span>
+                <select name="gender"
+                        ng-model="cx.gender"
+                        require>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </label>
+            <label class="item item-input validated item-stacked-label">
+                <input type="email" 
+                       ng-model="cx.email" 
+                       required="required"
+                       placeholder="Email Address"
+                       required>
+            </label>
+            <label class="item item-input">
+                <input type="tel"
+                       name="phone"
+                       ng-model="cx.phone"
+                       placeholder="Phone Number"
+                       maxlength="10"
+                       ng-pattern="/^[0-9]{10}/"
+                       required
+                       >
+            </label>
+            <label class="item item-input">
+                <input type="text" 
+                       name="address"
+                       ng-model="cx.address"
+                       placeholder="Address"
+                       required>
+            </label>
+            <label class="item item-input">
+                <input type="text" 
+                       name="city"
+                       ng-model="cx.city"
+                       placeholder="City"
+
+                       required>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Provinces
+                </div>
+                <select name="provinces" 
+                        ng-model="cx.provinces"
+                        required>
+                    <option> Alberta</option> 
+                    <option> British Columbia</option>
+                    <option> Manitoba</option>
+                    <option> New Brunswick</option>
+                    <option> Newfoundland and Labrador</option>
+                    <option> Nova Scotia</option>
+                    <option> Ontario</option>
+                    <option> Prince Edward Island</option>
+                    <option> Quebec</option>
+                    <option> Saskatchewan</option>
+                </select>
+            </label>
+
+
+            <ion-toggle ng-init="cx.subscription = false" 
+                        ng-model="cx.subscription" 
+                        toggle-class="toggle-calm">
+                Allow Receive Email
+            </ion-toggle>
+
+
+            <button class="button icon ion-android-checkmark button-block button-calm" 
+                    ng-click="submitForm()"
+                    ng-disabled="signupForm.$invalid"
+                    > Submit</button>
+        </form>
+    </ion-content>
+
+</ion-view>
+

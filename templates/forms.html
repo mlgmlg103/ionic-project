@@ -1,0 +1,31 @@
+<ion-view title="Forms">
+
+    <ion-nav-buttons side="left">
+
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ng-click=" data.showReorder = false;
+            data.showDelete = !data.showDelete;" >Edit</button>
+
+        <!--        <button class="button button-clear" ng-click="data.showDelete = false;
+                    data.showReorder = !data.showReorder;" >Reorder</button>-->
+
+    </ion-nav-buttons>
+    <ion-content class="has-header">
+        <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
+
+            <ion-item item-type="item item-icon-right" ng-repeat="form in forms" item="form" ng-click="openForm(form)">
+                <h2>{{form.firstName}} {{form.lastName}}</h2>
+                <span class="item-icon-right" style="color: #7f8c8d;">{{form.cardNumber| cardNumber}}</span>
+
+                <ion-delete-button class="ion-close-circled" 
+                                   ng-click="deleteForm('forms', form, forms)">
+                </ion-delete-button>
+<!--                <ion-reorder-button class="ion-navicon" on-reorder="moveForm(form, $fromIndex, $toIndex)"></ion-reorder-button>-->
+            </ion-item>  
+            <button ng-disabled="forms.length===0" class="button button-block button-calm" ng-click="sendAll()"><i class="icon ion-ios7-paperplane"></i> Send All</button>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,41 @@
+<ion-view title="Failed Forms">
+
+    <ion-nav-buttons side="left">
+
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ng-click="data.showDelete = !data.showDelete;" >Edit</button>
+
+
+    </ion-nav-buttons>
+    <ion-content class="has-header">
+        <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
+            <ion-item item-type="item item-icon-left" ng-repeat="form in f_forms" item="form" ng-click="openForm(form)">
+                <h2>{{form.firstName}} {{form.lastName}}</h2>
+                <span style="color: #7f8c8d;"><p>{{form.cardNumber| cardNumber}}</p></span>
+
+                <ion-delete-button class="ion-close-circled" 
+                                   ng-click="deleteForm(form)">
+                </ion-delete-button>
+                <ion-option-button class="button-balanced"
+                                   ng-click="openForm(form)">
+                    Re-Send
+                </ion-option-button>
+                <ion-reorder-button class="ion-navicon" on-reorder="moveForm(form, $fromIndex, $toIndex)"></ion-reorder-button>
+
+            </ion-item>  
+        </ion-list>
+
+        <!--        <div class="card" ng-repeat="form in forms" >
+        
+        
+                    <label class="item item-assertive item-stacked-label item-button-right"></label>
+                    <a class="item item-text-wrap item item-icon-left item-icon-right"  ng-click="openForm({{form.id}})"><h2>{{form.firstName}} {{form.lastName}}</h2>
+                          {{form.cardNumber}} 
+                         <i class="icon ion-ios7-telephone-outline"></i>
+                   </a>
+        
+                </div>-->
+    </ion-content>
+</ion-view>
